@@ -11,7 +11,7 @@ namespace AnecdoteCreator2
         static void Main(string[] args)
         {
             Console.Title = "Anecdote Creator 2";
-            Console.SetWindowSize(200, 60);
+            Console.SetWindowSize(120, 40);
 
             for (;;)
             {
