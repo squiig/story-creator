@@ -38,47 +38,30 @@ namespace AnecdoteCreator2
 
         private static string MaybeAddSomething()
         {
-            switch (r.Next(19))
+            string[] strings = new string[]
             {
-                case 0:
-                    return $", but { GetPart() }.";
-                case 1:
-                    return $", because { GetPart() }.";
-                case 2:
-                    return "?";
-                case 3:
-                    return "!";
-                case 4:
-                    return ". Really?";
-                case 5:
-                    return ", yay!";
-                case 6:
-                    return ", because I'm Batman!";
-                case 7:
-                    return $" and says \"{ GetPart() }.\"";
-                case 8:
-                    return ", but that doesn't matter.";
-                case 9:
-                    return "...";
-                case 10:
-                    return ". No shit.";
-                case 11:
-                    return $", oh well, { GetPart() }.";
-                case 12:
-                    return ". Wow!";
-                case 13:
-                    return ". Right...";
-                case 14:
-                    return ". That's so unexpected.";
-                case 15:
-                    return $", but actually { GetPart() }.";
-                case 16:
-                    return $", but this is false, because { GetPart() }.";
-                case 17:
-                    return $", that's why { GetPart() }.";
-                default:
-                    return ".";
-            }
+                $", but { GetPart() }.",
+                $", because { GetPart() }.",
+                "?",
+                "!",
+                ". Really?",
+                ", yay!",
+                ", because I'm Batman!",
+                $" and says \"{ GetPart() }.\"",
+                ", but that doesn't matter.",
+                "...",
+                ". No shit.",
+                $", oh well, { GetPart() }.",
+                ". Wow!",
+                ". Right...",
+                ". That's so unexpected.",
+                $", but actually { GetPart() }.",
+                $", but this is false, because { GetPart() }.",
+                $", that's why { GetPart() }.",
+                "."
+            };
+
+            return strings[r.Next(strings.Length)];
         }
 
         private static string GetPart()
