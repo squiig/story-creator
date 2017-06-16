@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SentencePartsLibrary;
 
 namespace AnecdoteCreator2
 {
@@ -17,7 +16,7 @@ namespace AnecdoteCreator2
 
             if (r.NextDouble() < .2d)
             {
-                sentence = $"\"{ GetPart() }\"  - { SubjectsLib.GetRandom() }, { GetRandomDate() }\n";
+                sentence = $"\"{ GetPart() }\"  - { WordPicker.Pick(WordType.Subject) }, { GetRandomDate() }\n";
             }
             else sentence = $"{ GetPart() + MaybeAddSomething() }\n";
 
@@ -66,7 +65,7 @@ namespace AnecdoteCreator2
 
         private static string GetPart()
         {
-            return $"{ SubjectsLib.GetRandom() } { VerbsLib.GetRandom() } { (r.NextDouble() < .1d ? SubjectsLib.GetRandom() : ObjectsLib.GetRandom())/* + MaybeAddSomething()*/ }";
+            return $"{ WordPicker.Pick(WordType.Subject) } { WordPicker.Pick(WordType.Verb) } { WordPicker.Pick((r.NextDouble() < .1d ? WordType.Subject : WordType.Object))/* + MaybeAddSomething()*/ }";
         }
     }
 }

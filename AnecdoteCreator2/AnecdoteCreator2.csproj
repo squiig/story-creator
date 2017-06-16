@@ -46,15 +46,10 @@
     <Compile Include="Generator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WordPicker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SentencePartsLibrary\SentencePartsLibrary.csproj">
-      <Project>{e366921b-67c6-47e0-83e1-d0ddb4bfa836}</Project>
-      <Name>SentencePartsLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
