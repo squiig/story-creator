@@ -8,4 +8,6 @@ Hi there, reader! Simply put, this is pretty much the same thing as [Anecdote Cr
 3. Double click on AnecdoteCreator2.exe
 
 ### How To Use
-Press any key to generate the next sentence. Have fun.
+Press any key to generate the next sentence. If you wish to add/remove/edit the lists of elements that the generator uses, simply open one of the .txt files with suffix "_list" and change it to your liking.
+
+Have fun!
