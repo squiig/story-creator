@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnecdoteCreator2
+namespace StoryCreator2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.Title = "Anecdote Creator 2";
+            Console.Title = "Story Creator - by Stan Graafmans";
             Console.SetWindowSize(120, 40);
 
             for (;;)

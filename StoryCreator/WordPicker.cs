@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Threading;
 
-namespace AnecdoteCreator2
+namespace StoryCreator2
 {
     public enum WordType
     {

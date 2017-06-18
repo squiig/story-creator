@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnecdoteCreator2
+namespace StoryCreator2
 {
     public static class Generator
     {
