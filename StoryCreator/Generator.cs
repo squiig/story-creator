@@ -18,7 +18,7 @@ namespace StoryCreator
             {
                 sentence = $"\"{ GetPart() }\"  - { WordPicker.Pick(WordType.Subject) }, { GetRandomDate() }\n";
             }
-            else sentence = $"{ GetPart() + MaybeAddSomething() }\n";
+            else sentence = $"{ GetPart() }{ WordPicker.Pick(WordType.Addition) }\n";
 
             return sentence;
         }
@@ -35,35 +35,7 @@ namespace StoryCreator
             return $"{ year }-{ month }-{ day }";
         }
 
-        private static string MaybeAddSomething()
-        {
-            string[] strings = new string[]
-            {
-                $", but { GetPart() }.",
-                $", because { GetPart() }.",
-                "?",
-                "!",
-                ". Really?",
-                ", yay!",
-                ", because I'm Batman!",
-                $" and says \"{ GetPart() }.\"",
-                ", but that doesn't matter.",
-                "...",
-                ". No shit.",
-                $", oh well, { GetPart() }.",
-                ". Wow!",
-                ". Right...",
-                ". That's so unexpected.",
-                $", but actually { GetPart() }.",
-                $", but this is false, because { GetPart() }.",
-                $", that's why { GetPart() }.",
-                "."
-            };
-
-            return strings[m_Random.Next(strings.Length)];
-        }
-
-        private static string GetPart()
+        public static string GetPart()
         {
             return $"{ WordPicker.Pick(WordType.Subject) } { WordPicker.Pick(WordType.Verb) } { WordPicker.Pick((m_Random.NextDouble() < .1d ? WordType.Subject : WordType.Object))/* + MaybeAddSomething()*/ }";
         }

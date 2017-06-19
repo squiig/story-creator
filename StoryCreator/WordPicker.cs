@@ -12,7 +12,8 @@ namespace StoryCreator
     {
         Subject = 0,
         Object,
-        Verb
+        Verb,
+        Addition
     }
 
     public static class WordPicker
@@ -29,7 +30,12 @@ namespace StoryCreator
             if (subjects == null)
                 return null;
 
-            return subjects[m_Random.Next(subjects.Length)];
+            string result = subjects[m_Random.Next(subjects.Length)];
+
+            if (wordType == WordType.Addition)
+                result = result.Replace("^", $"{ Generator.GetPart() }");
+
+            return result;
         }
     }
 }
