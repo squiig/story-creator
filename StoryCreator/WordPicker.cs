@@ -24,7 +24,7 @@ namespace StoryCreator
         {
             string[] subjects = null;
 
-            try { subjects = File.ReadAllLines($@".\{ wordType.ToString().ToLower() }_list.txt"); }
+            try { subjects = File.ReadAllLines($@".sclib\{ wordType.ToString().ToLower() }_list.txt"); }
             catch (FileNotFoundException e) { Console.WriteLine($"Error at { e.Source }, message: { e.Message }"); }
 
             if (subjects == null)
