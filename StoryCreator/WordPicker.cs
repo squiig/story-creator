@@ -30,7 +30,12 @@ namespace StoryCreator
             if (subjects == null)
                 return null;
 
-            string result = subjects[m_Random.Next(subjects.Length)];
+            string result = "#";
+
+            while (result.StartsWith("#"))
+            {
+                result = subjects[m_Random.Next(subjects.Length)];
+            }
 
             if (wordType == WordType.Addition)
                 result = result.Replace("^", $"{ Generator.GetPart() }");
