@@ -8,39 +8,50 @@ using System.Threading;
 
 namespace StoryCreator
 {
-    public enum WordType
-    {
-        Subject = 0,
-        Object,
-        Verb,
-        Addition
-    }
+	public enum WordType
+	{
+		Subject = 0,
+		Object,
+		Verb,
+		PostPart,
+		PrePart
+	}
 
-    public static class WordPicker
-    {
-        private static Random m_Random = new Random();
+	public static class WordPicker
+	{
+		private static Random m_Random = new Random();
 
-        public static string Pick(WordType wordType)
-        {
-            string[] subjects = null;
+		public static string Pick(WordType wordType)
+		{
+			string[] elements = null;
 
-            try { subjects = File.ReadAllLines($@".\sclib\{ wordType.ToString().ToLower() }_list.txt"); }
-            catch (FileNotFoundException e) { Console.WriteLine($"Error at { e.Source }, message: { e.Message }"); }
+			try
+			{
+				elements = File.ReadAllLines($@".\sclib\{ wordType.ToString().ToLower() }_list.txt");
+			}
+			catch (FileNotFoundException e)
+			{
+				Console.WriteLine($"Error at { e.Source }, message: { e.Message }");
+			}
 
-            if (subjects == null)
-                return null;
+			if (elements == null)
+			{
+				return null;
+			}
 
-            string result = "#";
+			string result = "#";
 
-            while (result.StartsWith("#"))
-            {
-                result = subjects[m_Random.Next(subjects.Length)];
-            }
+			while (result.StartsWith("#"))
+			{
+				result = elements[m_Random.Next(elements.Length)];
+			}
 
-            if (wordType == WordType.Addition)
-                result = result.Replace("^", $"{ Generator.GetPart() }");
+			if (wordType == WordType.PostPart)
+			{
+				result = result.Replace("^", $"{ Generator.GetPart() }");
+			}
 
-            return result;
-        }
-    }
+			return result;
+		}
+	}
 }

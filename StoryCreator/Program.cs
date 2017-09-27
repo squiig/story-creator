@@ -6,26 +6,44 @@ using System.Threading.Tasks;
 
 namespace StoryCreator
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.Title = "Story Creator - by Stan Graafmans";
-            Console.SetWindowSize(120, 40);
+	internal class Program
+	{
+		public const string ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-            for (;;)
-            {
-                StringBuilder sentence = new StringBuilder(Generator.GetNewSentence());
+		private static void Main(string[] args)
+		{
+			Console.Title = "Story Creator - by Stan Graafmans";
+			Console.SetWindowSize(120, 40);
 
-                if (sentence[0] == '\"')
-                    sentence[1] = char.ToUpper(sentence[1]);
-                else sentence[0] = char.ToUpper(sentence[0]);
+			while (true)
+			{
+				StringBuilder sentence = new StringBuilder(Generator.GetNewSentence());
 
-                Console.WriteLine(sentence.ToString());
+				if (sentence[0] == '\"')
+				{
+					sentence[1] = char.ToUpper(sentence[1]);
+				}
+				else
+				{
+					sentence[0] = char.ToUpper(sentence[0]);
+				}
 
-                Console.ReadKey(true);
-            }
-        }
+				for (int i = 0; i < sentence.Length; i++)
+				{
+					if (i > 1)
+					{
+						if (!(ALPHABET.Contains(sentence[i - 1]) || sentence[i - 1] == ','
+							|| ALPHABET.Contains(sentence[i - 2]) || sentence[i - 2] == ','))
+						{
+							sentence[i] = char.ToUpper(sentence[i]);
+						}
+					}
+				}
 
-    }
+				Console.WriteLine(sentence.ToString());
+
+				Console.ReadKey(true);
+			}
+		}
+	}
 }
