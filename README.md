@@ -8,6 +8,6 @@ Hi there, reader! Simply put, this is pretty much the same thing as [Anecdote Cr
 3. Double click on StoryCreator.exe
 
 ### How To Use
-Press any key to generate the next sentence. If you wish to add/remove/edit the lists of elements that the generator uses, simply open one of the .txt files with suffix "_list", change it to your liking, and save it.
+Press any key to generate the next sentence. If you wish to add to/remove from/edit the lists of elements that the generator uses, simply open one of the .txt files with suffix "_list", change it to your liking, and save it.
 
 Have fun!
