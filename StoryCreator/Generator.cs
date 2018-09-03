@@ -8,13 +8,13 @@ namespace StoryCreator
 {
 	public static class Generator
 	{
-		private static Random m_Random = new Random();
+		private static Random _random = new Random();
 
 		public static string GetNewSentence()
 		{
 			string sentence = GetPart();
 
-			if (m_Random.NextDouble() < .2d)
+			if (_random.NextDouble() < .2d)
 			{
 				sentence = $"\"{ sentence }\"  - { WordPicker.Pick(WordType.Subject) }, { GetRandomDate() }";
 			}
@@ -22,7 +22,7 @@ namespace StoryCreator
 			{
 				sentence = $"{ sentence }{ WordPicker.Pick(WordType.PostPart) }";
 
-				if (m_Random.NextDouble() < .2d)
+				if (_random.NextDouble() < .2d)
 					sentence = $"{ WordPicker.Pick(WordType.PrePart) } { sentence }";
 			}
 
@@ -31,9 +31,9 @@ namespace StoryCreator
 
 		private static string GetRandomDate()
 		{
-			string year = (1900 + m_Random.Next(200)).ToString();
-			string month = (1 + m_Random.Next(12)).ToString();
-			string day = m_Random.Next(32).ToString();
+			string year = (1900 + _random.Next(200)).ToString();
+			string month = (1 + _random.Next(12)).ToString();
+			string day = _random.Next(32).ToString();
 
 			if (int.Parse(month) < 10)
 			{
@@ -50,7 +50,7 @@ namespace StoryCreator
 
 		public static string GetPart()
 		{
-			return $"{ WordPicker.Pick(WordType.Subject) } { WordPicker.Pick(WordType.Verb) } { WordPicker.Pick((m_Random.NextDouble() < .1d ? WordType.Subject : WordType.Object)) }";
+			return $"{ WordPicker.Pick(WordType.Subject) } { WordPicker.Pick(WordType.Verb) } { WordPicker.Pick((_random.NextDouble() < .1d ? WordType.Subject : WordType.Object)) }";
 		}
 	}
 }

@@ -19,7 +19,7 @@ namespace StoryCreator
 
 	public static class WordPicker
 	{
-		private static Random m_Random = new Random();
+		private static Random _random = new Random();
 
 		public static string Pick(WordType wordType)
 		{
@@ -43,7 +43,7 @@ namespace StoryCreator
 
 			while (result.StartsWith("#"))
 			{
-				result = elements[m_Random.Next(elements.Length)];
+				result = elements[_random.Next(elements.Length)];
 			}
 
 			if (wordType == WordType.PostPart)
